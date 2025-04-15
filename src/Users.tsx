@@ -62,7 +62,7 @@ const CertificationInfo = [
         organization: "SHAPEMYSKILLS BY DUCAT, Lucknow, India",
         duration: "Jul 2024 - Aug 2024",
         logo: "download.png",
-        certificateImage: "/shape.png",
+        certificateImage: "shape.png",
         description:
             "Gained hands-on knowledge of core AWS services including EC2, S3, IAM, and Lambda. Learned to design scalable, secure, and cost-effective cloud infrastructure solutions following industry best practices."
     },
@@ -71,7 +71,7 @@ const CertificationInfo = [
         organization: "IIT Kanpur, Virtual",
         duration: "Aug 2022 - Oct 2022",
         logo: "logo2.png",
-        certificateImage: "/iit.png",
+        certificateImage: "iit.png",
         description:
             "Completed a certification program focused on web technologies including HTML5, CSS3, JavaScript, Bootstrap, PHP, and MySQL. Gained practical experience in building responsive and dynamic full-stack web applications."
     }
