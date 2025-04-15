@@ -16,8 +16,11 @@ const About = () => {
 
     return (
         <>
-            <section id="About">
-                <div className="lg:pt-[25vh] sm:pt-[24vh] xs:pt-[24vh] flex !mb-20 items-center px-14 overflow-hidden h-fit font-mono sm-mx:px-4 xs-mx:px-2 xs-mx:py-4 justify-around lg-mx:justify-between bs-mx:flex-wrap bs-mx:flex-col-reverse bs-mx:!overflow-visible bs-mx:gap-6 md-mx:px-6 bs-mx:items-center bs-mx:text-center bs-mx:mt-[-20px] bs-mx:pb-0">
+            <section
+                id="About"
+                className="pt-0 bs:pt-[24vh] xsm:pt-[25vh] xs:pt-[26vh] sm:pt-[28vh] md:pt-[30vh]"
+            >
+                <div className="flex !mb-20 items-center px-14 overflow-hidden h-fit font-mono sm-mx:px-4 xs-mx:px-2 xs-mx:py-4 justify-around lg-mx:justify-between bs-mx:flex-wrap bs-mx:flex-col-reverse bs-mx:!overflow-visible bs-mx:gap-6 md-mx:px-6 bs-mx:items-center bs-mx:text-center bs-mx:mt-[-20px] bs-mx:pb-0">
                     <div className="ml-20 w-3/5 flex flex-col lg-mx:gap-3 bs-mx:items-center bs-mx:ml-0 bs-mx:w-full">
                         <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
                             Hi, I am
