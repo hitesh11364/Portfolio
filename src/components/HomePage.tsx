@@ -22,7 +22,7 @@ const HomePage = () => {
             <ResumeViewer />
             <Mail />
             <Social />
-            <About />
+            <About showHeader={false} />
             <FloatingSocialButton isSidebarOpen={isSidebarOpen} />
             <Projects />
             <Skills />
