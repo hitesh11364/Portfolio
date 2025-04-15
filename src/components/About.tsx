@@ -20,7 +20,7 @@ const About = ({ showHeader }: HeaderProps) => {
 
     return (
         <>
-            <section id="About" className="mt-[20vh]">
+            <section id="About" className="pt-[16vh] px-4 sm:px-8">
                 <div
                     className={`lg:pt-[25vh] sm:pt-[24vh] xs:pt-[24vh] flex !mb-20 items-center px-14 overflow-hidden h-fit font-mono sm-mx:px-4 xs-mx:px-2 xs-mx:py-4 justify-around lg-mx:justify-between bs-mx:flex-wrap bs-mx:flex-col-reverse bs-mx:!overflow-visible bs-mx:gap-6 md-mx:px-6 bs-mx:items-center bs-mx:text-center bs-mx:mt-${showHeader ? '[70px]' : '[0px]'} bs-mx:pb-0`}
                 >
@@ -82,7 +82,7 @@ const About = ({ showHeader }: HeaderProps) => {
                         />
                     </div>
                 </div>
-            </section>
+            </section >
 
             <ResumeViewer opened={opened} close={close} />
         </>
