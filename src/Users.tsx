@@ -8,7 +8,7 @@ const ProjectInfo = [
     {
         title: "Edumentor",
         desc: "P.I.T.S. is an innovative AI-powered platform designed to provide a personalized learning experience. By leveraging advanced AI technologies, the system tailors study plans, interactive quizzes, and real-time chat support to help users master various subjects. Key features include personalized study plans, interactive quizzes, AI-driven chat assistance, efficient study material ingestion, and slide generation with narration, making learning more engaging and effective.",
-        image: "/Edumentor.PNG",
+        image: "Edumentor.PNG",
         live: false,
         technologies: ["AI", "Machine Learning", "React", "Streamlit", "Google Slides API", "OpenAI API"],
         github: "https://github.com/hitesh11364/Edumentor",
