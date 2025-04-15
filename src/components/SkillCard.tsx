@@ -10,7 +10,7 @@ const SkillBadge = (skills: string[]) => {
                 className="!w-[22px] !h-[22px] !p-[2px] sm:!w-[24px] sm:!h-[24px]"
                 variant="transparent"
                 radius="xs"
-                src={`/Icons/${skill}.png`}
+                src={`Icons/${skill}.png`}
             />
             <span className="text-textColor text-sm sm:text-base font-medium">{skill}</span>
         </div>

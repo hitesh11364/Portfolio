@@ -54,7 +54,7 @@ const About = () => {
                             </Button>
                             <Button
                                 component="a"
-                                href="/Hitesh Kumar Resume.pdf"
+                                href="Resume Hitesh.pdf"
                                 download={Info.name}
                                 className="!text-primaryColor !w-fit transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
                                 size={btn}
@@ -71,7 +71,7 @@ const About = () => {
                     <div className="h-fit flex justify-center items-center bs:mr-12 overflow-hidden rounded-full w-fit -mt-8 ml-8 bs-mx:hidden">
                         <img
                             className="w-[325px] rounded-full shadow-xl lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56"
-                            src="/Photo.jpeg"
+                            src="Photo.jpeg"
                             alt="Profile photo"
                         />
                     </div>

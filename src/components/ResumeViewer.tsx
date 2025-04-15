@@ -52,7 +52,7 @@ const ResumeViewer = (props: any) => {
                                 <ActionIcon
                                     className="!text-primaryColor"
                                     component="a"
-                                    href="/Hitesh Kumar Resume.pdf"
+                                    href="Resume Hitesh.pdf"
                                     download={Info.name}
                                     variant="outline"
                                     color="#64FFDA"
@@ -66,7 +66,7 @@ const ResumeViewer = (props: any) => {
                 </Modal.Header>
 
                 <Modal.Body className={`!bg-bgColor !border-primaryColor border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl max-h-[85vh] overflow-auto ${showScrollbar ? "custom-scrollbar" : "scrollbar-hide"}`}>
-                    <Document file="/Resume Hitesh.pdf" onLoadSuccess={onDocumentLoadSuccess}>
+                    <Document file="Resume Hitesh.pdf" onLoadSuccess={onDocumentLoadSuccess}>
                         {Array.from(new Array(numPages), (_, index) => (
                             <Page
                                 key={`page_${index + 1}`}
