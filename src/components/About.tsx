@@ -72,7 +72,7 @@ const About = () => {
                         <img
                             className="w-[325px] rounded-full shadow-xl lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56"
                             src="Photo.jpeg"
-                            alt="Profile photo"
+                            alt="Profile"
                         />
                     </div>
                 </div>
