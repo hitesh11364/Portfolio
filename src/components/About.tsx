@@ -1,100 +1,105 @@
-import { Info } from "../Users";
-import { Button } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";  // Correct import
-import { Typewriter } from "react-simple-typewriter";
-import ResumeViewer from "./ResumeViewer";
-import { IconDownload } from "@tabler/icons-react";
+import { Badge, Group, Indicator, Modal, Text, Button, ScrollArea } from "@mantine/core";
+import { Image } from "@mantine/core";
 
-type HeaderProps = {
-    showHeader: boolean;
-};
-
-const About = ({ showHeader }: HeaderProps) => {
-    const [opened, { open, close }] = useDisclosure(false);
-
+const FullProjectModal = (props: any) => {
     return (
-        <>
-            <section id="About" className="px-2 sm:px-8 mt-[16vh] lg:mt-0">
-                <div
-                    className={`
-                    font-mono h-fit overflow-hidden flex items-center justify-around
-                    px-12 mb-20
-                    lg:pt-[25vh]
-                    sm:pt-[22vh]
-                    xs:pt-[20vh]
-                    xsm-mx:pt-[16vh]
-                    bs-mx:pt-[14vh]
-                    lg-mx:justify-between
-                    md-mx:px-6
-                    sm-mx:px-4
-                    xs-mx:px-2 xs-mx:py-4
-                    bs-mx:flex-wrap bs-mx:flex-col-reverse
-                    bs-mx:!overflow-visible bs-mx:gap-6
-                    bs-mx:items-center bs-mx:text-center
-                    ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
-                    bs-mx:pb-0
-                `}
-                >
-                    <div className="ml-20 w-3/5 flex flex-col lg-mx:gap-3 bs-mx:items-center bs-mx:ml-0 bs-mx:w-full">
-                        <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
-                            Hi, I am
-                        </div>
-                        <div className="text-white text-[4.25rem] font-extrabold whitespace-nowrap lg-mx:text-5xl sm-mx:text-4xl xs-mx:text-3xl xsm-mx:text-[27px]">
-                            {Info.name}
-                        </div>
-                        <div className="text-white text-4xl sm:text-2xl xs:text-xl xsm:text-lg font-semibold flex flex-wrap items-center gap-2">
-                            <span className="whitespace-nowrap">I'm a&nbsp;</span>
-                            <span className="text-primaryColor inline-block">
-                                <Typewriter
-                                    words={Info.skills}
-                                    loop={true}
-                                    cursor
-                                    cursorStyle="_"
-                                    typeSpeed={60}
-                                    deleteSpeed={50}
-                                    delaySpeed={500} />
-                            </span>
-                        </div>
-
-                        <div className="text-textColor text-xl text-justify my-8 font-semibold lg-mx:text-base sm-mx:text-sm xs-mx:text-xs bs-mx:text-center bs-mx:px-4 bs-mx:text-justify">
-                            {Info.bio}
-                        </div>
-                        <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-nowrap">
-                            <Button
-                                onClick={open}
-                                className="!text-bgColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg lg:text-xl lg:px-8 lg:py-4 transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
-                                variant="filled"
-                                color="#64FFDA"
-                            >
-                                View My Resume
-                            </Button>
-
-                            <Button
-                                component="a"
-                                href="Resume Hitesh.pdf"
-                                download={Info.name}
-                                className="!text-primaryColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg lg:text-xl lg:px-8 lg:py-4 transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
+        <Modal.Root
+            scrollAreaComponent={ScrollArea.Autosize}
+            size="lg"
+            classNames={{
+                content: "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[60%] xl:!w-[50%]",  // Adjust width on larger screens
+            }}
+            className="font-mono"
+            opened={props.opened}
+            onClose={props.close}
+        >
+            <Modal.Overlay />
+            <Modal.Content className="!rounded-3xl">
+                <Modal.Header className="!bg-bgColor !border-primaryColor border-2 !border-b-0 !rounded-tl-3xl !rounded-tr-3xl">
+                    <Modal.Title data-autofocus className="!text-2xl sm:!text-3xl text-white flex gap-3 items-center font-bold">
+                        {props.title}
+                        {props.live === true && (
+                            <Badge
+                                className="flex gap-1 items-center"
+                                size="lg"
                                 variant="outline"
-                                color="#64FFDA"
-                                rightSection={<IconDownload size={24} />}
+                                color="red"
+                                rightSection={<Indicator color="red" position="middle-end" size={10} processing />}
                             >
-                                Download
+                                Live
+                            </Badge>
+                        )}
+                    </Modal.Title>
+                    <Modal.CloseButton size="md" iconSize="30px" className="!bg-bgColor !text-red-500" />
+                </Modal.Header>
+
+                <Modal.Body className="!bg-bgColor !border-primaryColor border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl p-4 sm:p-6 max-h-[85vh] overflow-y-auto">
+                    {/* Image */}
+                    <Image
+                        className="!rounded-xl !pt-2 !shadow-[0_0_5px_0_#64FFDA]"
+                        src={props.image}
+                        alt={props.image}
+                    />
+
+                    {/* Technologies Badge */}
+                    <Group mt="sm" mb="sm" className="flex flex-wrap gap-2">
+                        {props.technologies.map((tech: string, index: number) => (
+                            <Badge key={index} size="lg" variant="light" color="#64FFDA">
+                                {tech}
+                            </Badge>
+                        ))}
+                    </Group>
+
+                    {/* Description Text */}
+                    <Text className="!text-justify !sm:text-left  !text-textColor" size="md">
+                        {props.desc}
+                    </Text>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-4">
+                        <a href={props.github} target="_blank" className="w-full">
+                            <Button
+                                variant="outline"
+                                size="md"
+                                color="#64FFDA"
+                                fullWidth
+                                radius="md"
+                                className="!w-full"
+                            >
+                                View Code
                             </Button>
-                        </div>
-
+                        </a>
+                        {props.live ? (
+                            <a href={props.link} target="_blank" className="w-full">
+                                <Button
+                                    variant="outline"
+                                    size="md"
+                                    color="#64FFDA"
+                                    fullWidth
+                                    radius="md"
+                                    className="!w-full"
+                                >
+                                    View Live App
+                                </Button>
+                            </a>
+                        ) : (
+                            <Button
+                                variant="outline"
+                                size="md"
+                                color="gray"
+                                fullWidth
+                                radius="md"
+                                disabled
+                                className="!w-full"
+                            >
+                                Live App Unavailable
+                            </Button>
+                        )}
                     </div>
-
-                    {/* Hide photo on small screens */}
-                    <div className="h-fit flex justify-center items-center bs:mr-12 overflow-hidden rounded-full w-fit -mt-8 ml-8 bs-mx:hidden">
-                        <img
-                            className="w-[325px] rounded-full shadow-xl lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56"
-                            src="Photo.jpeg"
-                            alt="Profile" />
-                    </div>
-                </div>
-            </section><ResumeViewer opened={opened} close={close} />
-        </>
+                </Modal.Body>
+            </Modal.Content>
+        </Modal.Root>
     );
 };
 
-export default About;
+export default FullProjectModal;
