@@ -42,7 +42,7 @@ const About = ({ showHeader }: HeaderProps) => {
                         <div className="text-white text-[4.25rem] font-extrabold whitespace-nowrap lg-mx:text-5xl sm-mx:text-4xl xs-mx:text-3xl xsm-mx:text-[27px]">
                             {Info.name}
                         </div>
-                        <div className="text-white !text-4xl sm:text-2xl xs:text-xl xsm:text-lg font-semibold flex flex-wrap items-center gap-2">
+                        <div className="text-white text-4xl sm:text-2xl xs:text-xl xsm:text-lg font-semibold flex flex-wrap items-center gap-2">
                             <span className="whitespace-nowrap">I'm a&nbsp;</span>
                             <span className="text-primaryColor inline-block">
                                 <Typewriter
