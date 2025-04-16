@@ -35,10 +35,11 @@ const About = ({ showHeader }: HeaderProps) => {
                 scaleMobile: 1.0,
                 color: "#8892B0",
                 backgroundColor: "#112240",
-                showLines: false
+                showLines: false // Only show dots, no lines
             });
         }
 
+        // Cleanup Vanta effect on component unmount or screen resize
         return () => {
             if (vantaEffectRef.current) {
                 vantaEffectRef.current.destroy();
@@ -57,30 +58,30 @@ const About = ({ showHeader }: HeaderProps) => {
                 ></div>
             )}
 
-            <section id="About" className="px-4 sm:px-8 mt-[16vh] lg:mt-0">
+            <section
+                id="About"
+                className="relative px-4 sm:px-8 mt-0 min-h-screen flex justify-center items-center bg-primaryColor sm:min-h-[100vh]"
+            >
                 <div
-                    className={`
-            font-mono h-fit overflow-hidden flex items-center justify-around
-            px-14 mb-20
-            lg:pt-[25vh]
-            sm:pt-[22vh]
-            xs:pt-[20vh]
-            xsm-mx:pt-[16vh]
-            bs-mx:pt-[14vh]
-            lg-mx:justify-between
-            md-mx:px-6
-            sm-mx:px-4
-            xs-mx:px-2 xs-mx:py-4
-            bs-mx:flex-wrap bs-mx:flex-col-reverse
-            bs-mx:!overflow-visible bs-mx:gap-6
-            bs-mx:items-center bs-mx:text-center
-            ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
-            bs-mx:pb-0
-          `}
+                    className={`font-mono h-full w-full flex flex-col items-center justify-center text-center px-14 mb-20
+                    lg:pt-[25vh]
+                    sm:pt-[22vh]
+                    xs:pt-[20vh]
+                    xsm-mx:pt-[16vh]
+                    bs-mx:pt-[14vh]
+                    lg-mx:justify-between
+                    md-mx:px-6
+                    sm-mx:px-4
+                    xs-mx:px-2 xs-mx:py-4
+                    bs-mx:flex-wrap bs-mx:flex-col-reverse
+                    bs-mx:!overflow-visible bs-mx:gap-6
+                    bs-mx:items-center bs-mx:text-center
+                    ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
+                    bs-mx:pb-0`}
                 >
                     {/* Text section */}
-                    <div className="ml-20 w-3/5 flex flex-col lg-mx:gap-3 bs-mx:items-center bs-mx:ml-0 bs-mx:w-full">
-                        <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
+                    <div className="w-full flex flex-col items-center gap-4">
+                        <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg font-semibold">
                             Hi, I am
                         </div>
                         <div className="text-white text-[4.25rem] font-extrabold whitespace-nowrap lg-mx:text-5xl sm-mx:text-4xl xs-mx:text-3xl xsm-mx:text-[27px]">
@@ -105,7 +106,7 @@ const About = ({ showHeader }: HeaderProps) => {
                             {Info.bio}
                         </div>
 
-                        <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-nowrap">
+                        <div className="flex gap-3 justify-center">
                             <Button
                                 onClick={open}
                                 className="!text-bgColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
@@ -129,7 +130,7 @@ const About = ({ showHeader }: HeaderProps) => {
                     </div>
 
                     {/* Profile image - hidden on mobile */}
-                    <div className="h-fit flex justify-center items-center bs:mr-12 overflow-hidden rounded-full w-fit -mt-8 ml-8 bs-mx:hidden">
+                    <div className="mt-10 h-fit flex justify-center items-center bs:mr-12 overflow-hidden rounded-full w-60 shadow-2xl hidden sm:block">
                         <img
                             className="w-[325px] rounded-full shadow-xl lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56"
                             src="Photo.jpeg"
