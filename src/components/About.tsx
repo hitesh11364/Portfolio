@@ -43,7 +43,7 @@ const About = ({ showHeader }: HeaderProps) => {
                             {Info.name}
                         </div>
                         <div className="text-white !text-4xl sm:text-2xl xs:text-xl xsm:text-lg font-semibold flex flex-wrap items-center gap-2">
-                            <span className="whitespace-nowrap">I'm a</span>
+                            <span className="whitespace-nowrap">I'm a&nbsp;</span>
                             <span className="text-primaryColor inline-block">
                                 <Typewriter
                                     words={Info.skills}
