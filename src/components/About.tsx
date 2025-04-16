@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
 import { Info } from "../Users";
 import { Button } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure } from "@mantine/hooks";  // Correct import
 import { Typewriter } from "react-simple-typewriter";
 import ResumeViewer from "./ResumeViewer";
 import { IconDownload } from "@tabler/icons-react";
@@ -12,38 +11,30 @@ type HeaderProps = {
 
 const About = ({ showHeader }: HeaderProps) => {
     const [opened, { open, close }] = useDisclosure(false);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        setIsMobile(window.innerWidth < 768);
-    }, []);
 
     return (
         <>
-            <section
-                id="About"
-                className={`relative px-4 sm:px-8 mt-[16vh] lg:mt-0 !bg-bgColor ${isMobile ? "h-screen pt-[18vh]" : ""
-                    }`}
-            >
+            <section id="About" className="px-4 sm:px-8 mt-[16vh] lg:mt-0">
                 <div
                     className={`
-                         font-mono h-fit overflow-hidden flex items-center justify-around px-14 mb-20 lg:pt-[25vh]
-                          sm:pt-[22vh]
-                          xs:pt-[20vh]
-                         xsm-mx:pt-[16vh]
-                         bs-mx:pt-[14vh]
-                         lg-mx:justify-between
-                         md-mx:px-6
-                         sm-mx:px-4
-                         xs-mx:px-2 xs-mx:py-4
-                         bs-mx:flex-wrap bs-mx:flex-col-reverse
-                         bs-mx:!overflow-visible bs-mx:gap-6
-                         bs-mx:items-center bs-mx:text-center
-                         ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
-                         bs-mx:pb-0
-        `}
+                    font-mono h-fit overflow-hidden flex items-center justify-around
+                    px-14 mb-20
+                    lg:pt-[25vh]
+                    sm:pt-[22vh]
+                    xs:pt-[20vh]
+                    xsm-mx:pt-[16vh]
+                    bs-mx:pt-[14vh]
+                    lg-mx:justify-between
+                    md-mx:px-6
+                    sm-mx:px-4
+                    xs-mx:px-2 xs-mx:py-4
+                    bs-mx:flex-wrap bs-mx:flex-col-reverse
+                    bs-mx:!overflow-visible bs-mx:gap-6
+                    bs-mx:items-center bs-mx:text-center
+                    ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
+                    bs-mx:pb-0
+                `}
                 >
-                    {/* Text section */}
                     <div className="ml-20 w-3/5 flex flex-col lg-mx:gap-3 bs-mx:items-center bs-mx:ml-0 bs-mx:w-full">
                         <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
                             Hi, I am
@@ -61,15 +52,13 @@ const About = ({ showHeader }: HeaderProps) => {
                                     cursorStyle="_"
                                     typeSpeed={60}
                                     deleteSpeed={50}
-                                    delaySpeed={500}
-                                />
+                                    delaySpeed={500} />
                             </span>
                         </div>
 
-                        <div className="text-textColor text-xl my-8 font-semibold lg-mx:text-base sm-mx:text-sm xs-mx:text-xs bs-mx:text-center bs-mx:px-4">
+                        <div className="text-textColor text-xl text-justify my-8 font-semibold lg-mx:text-base sm-mx:text-sm xs-mx:text-xs bs-mx:text-center bs-mx:px-4 bs-mx:text-justify">
                             {Info.bio}
                         </div>
-
                         <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-nowrap">
                             <Button
                                 onClick={open}
@@ -93,18 +82,15 @@ const About = ({ showHeader }: HeaderProps) => {
                         </div>
                     </div>
 
-                    {/* Profile image - hidden on mobile */}
+                    {/* Hide photo on small screens */}
                     <div className="h-fit flex justify-center items-center bs:mr-12 overflow-hidden rounded-full w-fit -mt-8 ml-8 bs-mx:hidden">
                         <img
                             className="w-[325px] rounded-full shadow-xl lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56"
                             src="Photo.jpeg"
-                            alt="Profile"
-                        />
+                            alt="Profile" />
                     </div>
                 </div>
-            </section>
-
-            <ResumeViewer opened={opened} close={close} />
+            </section><ResumeViewer opened={opened} close={close} />
         </>
     );
 };
