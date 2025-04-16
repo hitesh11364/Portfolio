@@ -42,7 +42,7 @@ const About = ({ showHeader }: HeaderProps) => {
                         <div className="text-white text-[4.25rem] font-extrabold whitespace-nowrap lg-mx:text-5xl sm-mx:text-4xl xs-mx:text-3xl xsm-mx:text-[27px]">
                             {Info.name}
                         </div>
-                        <div className="text-white text-4xl sm:text-2xl xs:text-xl xsm:text-lg font-semibold flex flex-wrap items-center gap-2">
+                        <div className="text-white text-4xl sm:text-2xl xs:text-xl xsm:text-lg  lg:text-5xl xl:text-6xl font-semibold flex flex-wrap items-center gap-2">
                             <span className="whitespace-nowrap">I'm a</span>
                             <span className="text-primaryColor inline-block">
                                 <Typewriter
@@ -62,24 +62,26 @@ const About = ({ showHeader }: HeaderProps) => {
                         <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-nowrap">
                             <Button
                                 onClick={open}
-                                className="!text-bgColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
+                                className="!text-bgColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg lg:text-xl lg:px-8 lg:py-4 transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
                                 variant="filled"
                                 color="#64FFDA"
                             >
                                 View My Resume
                             </Button>
+
                             <Button
                                 component="a"
                                 href="Resume Hitesh.pdf"
                                 download={Info.name}
-                                className="!text-primaryColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
+                                className="!text-primaryColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg lg:text-xl lg:px-8 lg:py-4 transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
                                 variant="outline"
                                 color="#64FFDA"
-                                rightSection={<IconDownload size={20} />}
+                                rightSection={<IconDownload size={24} />}
                             >
                                 Download
                             </Button>
                         </div>
+
                     </div>
 
                     {/* Hide photo on small screens */}
