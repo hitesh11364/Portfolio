@@ -67,7 +67,7 @@ const FullProjectModal = (props: any) => {
                     </Text>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-6 lg:mb-10">
+                    <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-6 lg:mb-12 xl:mb-16 2xl:mb-20">
                         <a href={props.github} target="_blank" className="w-full">
                             <Button
                                 variant="outline"
