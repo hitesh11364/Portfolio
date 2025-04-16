@@ -51,7 +51,7 @@ const FullProjectModal = (props: any) => {
                     </Group>
 
                     {/* Description Text */}
-                    <Text className="!text-justify !sm:text-start  !text-textColor" size="md">
+                    <Text className="!text-justify !sm:text-left  !text-textColor" size="md">
                         {props.desc}
                     </Text>
 

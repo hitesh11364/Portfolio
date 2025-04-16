@@ -1,6 +1,8 @@
+import { useEffect, useState } from "react";
+import Vanta from "vanta/dist/vanta.globe.min.js"; // Import the Vanta effect
 import { Info } from "../Users";
 import { Button } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";  // Correct import
+import { useDisclosure } from "@mantine/hooks";
 import { Typewriter } from "react-simple-typewriter";
 import ResumeViewer from "./ResumeViewer";
 import { IconDownload } from "@tabler/icons-react";
@@ -12,8 +14,47 @@ type HeaderProps = {
 const About = ({ showHeader }: HeaderProps) => {
     const [opened, { open, close }] = useDisclosure(false);
 
+    // State to hold the Vanta effect
+    const [vantaEffect, setVantaEffect] = useState<any>(null);
+
+    // Detect the screen size (e.g., mobile vs. larger screens)
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        // Check if the screen width is small (e.g., below 768px)
+        setIsMobile(window.innerWidth < 768);
+
+        // Initialize the Vanta effect on mobile screens with custom colors
+        if (isMobile) {
+            setVantaEffect(
+                Vanta({
+                    el: "#vanta-container",
+                    color1: "#64FFDA", // Website primary color (light cyan)
+                    color2: "#00FFAB", // Custom secondary color (you can adjust)
+                    backgroundColor: "#000000", // Background color (dark)
+                })
+            );
+        }
+
+        // Cleanup Vanta.js effect on component unmount
+        return () => {
+            if (vantaEffect) {
+                vantaEffect.destroy();
+            }
+        };
+    }, [isMobile]);
+
     return (
         <>
+            {/* Vanta effect container only for mobile screens */}
+            {isMobile && (
+                <div
+                    id="vanta-container"
+                    className="absolute top-0 left-0 w-full h-full z-[-1]"
+                    style={{ backgroundColor: "#000" }}
+                ></div>
+            )}
+
             <section id="About" className="px-4 sm:px-8 mt-[16vh] lg:mt-0">
                 <div
                     className={`
