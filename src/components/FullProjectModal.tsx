@@ -5,7 +5,7 @@ const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
-            size="lg"
+            size="xl"
             classNames={{
                 content:
                     "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[65%] xl:!w-[60%] 2xl:!w-[55%] !max-h-[95vh]",
