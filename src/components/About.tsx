@@ -43,8 +43,8 @@ const About = ({ showHeader }: HeaderProps) => {
                             {Info.name}
                         </div>
                         <div className="text-white text-4xl w-[80%] font-semibold whitespace-nowrap justify-center lg-mx:text-[27px] lg-mx:my-0 sm-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
-                            I am a&nbsp;
-                            <span className="text-primaryColor inline-block">
+                            <span className="inline">{`I'm a`}&nbsp;</span>
+                            <span className="text-primaryColor inline">
                                 <Typewriter
                                     words={Info.skills}
                                     loop={true}
