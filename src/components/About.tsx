@@ -40,7 +40,7 @@ const About = ({ showHeader }: HeaderProps) => {
                         bs-mx:flex-wrap bs-mx:flex-col-reverse
                         bs-mx:!overflow-visible bs-mx:gap-6
                         bs-mx:items-center bs-mx:text-center
-                        ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
+                        ${showHeader ? "xsm-mx:mt-[16vh]" : "xsm-mx:mt-0"}
                         bs-mx:pb-0
                       `}
 
