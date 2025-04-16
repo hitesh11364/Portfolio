@@ -5,8 +5,9 @@ const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
+            size="lg"
             classNames={{
-                content: "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[60%] xl:!w-[50%]", // Adjust width on larger screens
+                content: "!w-[95%] sm:!w-[80%] md:!w-[70%]",
             }}
             className="font-mono"
             opened={props.opened}
@@ -50,7 +51,7 @@ const FullProjectModal = (props: any) => {
                     </Group>
 
                     {/* Description Text */}
-                    <Text className="!text-justify !sm:text-left  !text-textColor" size="md">
+                    <Text className="!text-justify !sm:text-lr  !text-textColor" size="md">
                         {props.desc}
                     </Text>
 
