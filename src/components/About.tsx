@@ -54,7 +54,7 @@ const About = ({ showHeader }: HeaderProps) => {
                         </div>
                         <div className="text-white text-4xl w-[80%] font-semibold whitespace-nowrap justify-center lg-mx:text-[27px] lg-mx:my-0 sm-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
                             I am a&nbsp;
-                            <span className="text-primaryColor inline-block">
+                            <span className="text-primaryColor inline-block bs-mx:min-w-[200px] xsm-mx:min-w-[180px] min-w-[220px]">
                                 <Typewriter
                                     words={Info.skills}
                                     loop={true}
@@ -66,10 +66,10 @@ const About = ({ showHeader }: HeaderProps) => {
                                 />
                             </span>
                         </div>
-                        <div className="text-textColor text-xl text-justify my-8 font-semibold lg-mx:text-base sm-mx:text-sm xs-mx:text-xs bs-mx:text-center bs-mx:px-4 bs-mx:text-justify">
+                        <div className="text-textColor text-xl text-justify my-8 font-semibold lg-mx:text-base sm-mx:text-base xs-mx:text-sm xsm-mx:text-sm bs-mx:text-center bs-mx:px-4 bs-mx:text-justify">
                             {Info.bio}
                         </div>
-                        <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-wrap">
+                        <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-nowrap">
                             <Button
                                 onClick={open}
                                 className="!text-bgColor !w-fit transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
