@@ -62,7 +62,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="font-mono px-6 sm:px-8 xs:px-4 xsm:px-2 my-10" id="Contact">
+        <div className="font-mono px-4 xsm:px-6 sm:px-8 md:px-10 lg:px-20 xl:px-32 my-10" id="Contact">
             <h1 className="text-4xl sm:text-3xl xs:text-2xl text-center mb-10 font-bold text-white">
                 <span className="text-primaryColor">05.&nbsp;</span>Contact
             </h1>
@@ -114,15 +114,13 @@ const Contact = () => {
                 />
 
                 <button
-                    className={`
-            w-full text-lg sm:text-base font-bold px-6 py-3 rounded-lg transition-all duration-300 transform
-            ${submitState === "sending"
+                    className={`w-full text-lg sm:text-base font-bold px-6 py-3 rounded-lg transition-all duration-300 transform
+                        ${submitState === "sending"
                             ? "bg-blue-500 text-white scale-95 shadow-inner"
                             : submitState === "sent"
                                 ? "bg-green-500 text-white scale-105 shadow-lg"
-                                : "bg-primaryColor text-bgColor hover:scale-105 hover:shadow-[0_0_10px_#64FFDA]"
-                        }
-          `}
+                                : "bg-primaryColor text-bgColor hover:scale-105 hover:shadow-[0_0_10px_#64FFDA]"}
+                    `}
                     onClick={handleSubmit}
                     disabled={submitState === "sending"}
                 >

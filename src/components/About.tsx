@@ -1,7 +1,7 @@
 import { Info } from "../Users";
-import { Button, useMatches } from "@mantine/core";
+import { Button } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";  // Correct import
 import { Typewriter } from "react-simple-typewriter";
-import { useDisclosure } from "@mantine/hooks";
 import ResumeViewer from "./ResumeViewer";
 import { IconDownload } from "@tabler/icons-react";
 
@@ -11,39 +11,29 @@ type HeaderProps = {
 
 const About = ({ showHeader }: HeaderProps) => {
     const [opened, { open, close }] = useDisclosure(false);
-    const btn = useMatches({
-        xs: 'xs',
-        sm: 'sm',
-        md: 'md',
-        lg: 'lg'
-    });
 
     return (
         <>
-            <section id="About" className=" px-4 sm:px-8">
+            <section id="About" className="px-4 sm:px-8 mt-[16vh] lg:mt-0">
                 <div
                     className={`
                         font-mono h-fit overflow-hidden flex items-center justify-around
                         px-14 mb-20
-                      
                         lg:pt-[25vh]
                         sm:pt-[22vh]
                         xs:pt-[20vh]
                         xsm-mx:pt-[16vh]
                         bs-mx:pt-[14vh]
-                      
                         lg-mx:justify-between
                         md-mx:px-6
                         sm-mx:px-4
                         xs-mx:px-2 xs-mx:py-4
-                      
                         bs-mx:flex-wrap bs-mx:flex-col-reverse
                         bs-mx:!overflow-visible bs-mx:gap-6
                         bs-mx:items-center bs-mx:text-center
-                        ${showHeader ? "xsm-mx:mt-[16vh]" : "xsm-mx:mt-0"}
+                        ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
                         bs-mx:pb-0
-                      `}
-
+                    `}
                 >
                     <div className="ml-20 w-3/5 flex flex-col lg-mx:gap-3 bs-mx:items-center bs-mx:ml-0 bs-mx:w-full">
                         <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
@@ -54,7 +44,7 @@ const About = ({ showHeader }: HeaderProps) => {
                         </div>
                         <div className="text-white text-4xl w-[80%] font-semibold whitespace-nowrap justify-center lg-mx:text-[27px] lg-mx:my-0 sm-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
                             I am a&nbsp;
-                            <span className="text-primaryColor inline-block bs-mx:min-w-[200px] xsm-mx:min-w-[180px] min-w-[220px]">
+                            <span className="text-primaryColor inline-block">
                                 <Typewriter
                                     words={Info.skills}
                                     loop={true}
@@ -66,14 +56,13 @@ const About = ({ showHeader }: HeaderProps) => {
                                 />
                             </span>
                         </div>
-                        <div className="text-textColor text-xl text-justify my-8 font-semibold lg-mx:text-base sm-mx:text-base xs-mx:text-sm xsm-mx:text-sm bs-mx:text-center bs-mx:px-4 bs-mx:text-justify">
+                        <div className="text-textColor text-xl text-justify my-8 font-semibold lg-mx:text-base sm-mx:text-sm xs-mx:text-xs bs-mx:text-center bs-mx:px-4 bs-mx:text-justify">
                             {Info.bio}
                         </div>
                         <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-nowrap">
                             <Button
                                 onClick={open}
-                                className="!text-bgColor !w-fit transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
-                                size={btn}
+                                className="!text-bgColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
                                 variant="filled"
                                 color="#64FFDA"
                             >
@@ -83,8 +72,7 @@ const About = ({ showHeader }: HeaderProps) => {
                                 component="a"
                                 href="Resume Hitesh.pdf"
                                 download={Info.name}
-                                className="!text-primaryColor !w-fit transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
-                                size={btn}
+                                className="!text-primaryColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
                                 variant="outline"
                                 color="#64FFDA"
                                 rightSection={<IconDownload size={20} />}
@@ -103,7 +91,7 @@ const About = ({ showHeader }: HeaderProps) => {
                         />
                     </div>
                 </div>
-            </section >
+            </section>
 
             <ResumeViewer opened={opened} close={close} />
         </>
