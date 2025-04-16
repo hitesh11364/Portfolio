@@ -4,11 +4,12 @@ const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
+            size="auto" // Don't limit width
             className="font-mono"
             opened={props.opened}
             onClose={props.close}
             classNames={{
-                content: "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[50%] xl:!w-[40%]",
+                content: "!w-[95%] sm:!w-[85%] md:!w-[75%] lg:!w-[65%] xl:!w-[55%] 2xl:!w-[45%]",
             }}
         >
             <Modal.Overlay />
