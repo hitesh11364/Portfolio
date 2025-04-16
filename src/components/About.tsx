@@ -14,7 +14,9 @@ const About = ({ showHeader }: HeaderProps) => {
 
     return (
         <>
-            <section id="About" className="px-2 sm:px-8 mt-[16vh] lg:mt-0">
+            <section id="About" className="px-4 sm:px-6 md:px-8
+    lg:px-20 xl:px-28 2xl:px-32
+    mt-[16vh] lg:mt-0">
                 <div
                     className={`
                     font-mono h-fit overflow-hidden flex items-center justify-around
