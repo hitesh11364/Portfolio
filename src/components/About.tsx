@@ -22,27 +22,25 @@ const About = ({ showHeader }: HeaderProps) => {
         <>
             <section
                 id="About"
-                className={`relative px-4 sm:px-8 mt-[16vh] lg:mt-0 bg-bgColor ${isMobile ? "h-screen pt-[18vh]" : ""
+                className={`relative px-4 sm:px-8 mt-[16vh] lg:mt-0 !bg-bgColor ${isMobile ? "h-screen pt-[18vh]" : ""
                     }`}
             >
                 <div
                     className={`
-          font-mono h-fit overflow-hidden flex items-center justify-around
-          px-14 mb-20
-          lg:pt-[25vh]
-          sm:pt-[22vh]
-          xs:pt-[20vh]
-          xsm-mx:pt-[16vh]
-          bs-mx:pt-[14vh]
-          lg-mx:justify-between
-          md-mx:px-6
-          sm-mx:px-4
-          xs-mx:px-2 xs-mx:py-4
-          bs-mx:flex-wrap bs-mx:flex-col-reverse
-          bs-mx:!overflow-visible bs-mx:gap-6
-          bs-mx:items-center bs-mx:text-center
-          ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
-          bs-mx:pb-0
+                         font-mono h-fit overflow-hidden flex items-center justify-around px-14 mb-20 lg:pt-[25vh]
+                          sm:pt-[22vh]
+                          xs:pt-[20vh]
+                         xsm-mx:pt-[16vh]
+                         bs-mx:pt-[14vh]
+                         lg-mx:justify-between
+                         md-mx:px-6
+                         sm-mx:px-4
+                         xs-mx:px-2 xs-mx:py-4
+                         bs-mx:flex-wrap bs-mx:flex-col-reverse
+                         bs-mx:!overflow-visible bs-mx:gap-6
+                         bs-mx:items-center bs-mx:text-center
+                         ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
+                         bs-mx:pb-0
         `}
                 >
                     {/* Text section */}
