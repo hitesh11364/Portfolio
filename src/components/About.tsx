@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import VantaDots from "vanta/dist/vanta.dots.min";
+import { useEffect, useState } from "react";
 import { Info } from "../Users";
 import { Button } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -14,74 +13,41 @@ type HeaderProps = {
 const About = ({ showHeader }: HeaderProps) => {
     const [opened, { open, close }] = useDisclosure(false);
     const [isMobile, setIsMobile] = useState(false);
-    const vantaRef = useRef<HTMLDivElement>(null);
-    const vantaEffectRef = useRef<any>(null);
 
-    // Detect screen size
     useEffect(() => {
         setIsMobile(window.innerWidth < 768);
     }, []);
 
-    // Apply Vanta only for small screens
-    useEffect(() => {
-        if (isMobile && vantaRef.current && !vantaEffectRef.current) {
-            vantaEffectRef.current = VantaDots({
-                el: vantaRef.current,
-                mouseControls: true,
-                touchControls: true,
-                minHeight: 200.0,
-                minWidth: 200.0,
-                scale: 1.0,
-                scaleMobile: 1.0,
-                color: "#8892B0",
-                backgroundColor: "#112240",
-                showLines: false // Only show dots, no lines
-            });
-        }
-
-        // Cleanup Vanta effect on component unmount or screen resize
-        return () => {
-            if (vantaEffectRef.current) {
-                vantaEffectRef.current.destroy();
-                vantaEffectRef.current = null;
-            }
-        };
-    }, [isMobile]);
-
     return (
         <>
-            {/* Vanta background container (mobile only) */}
-            {isMobile && (
-                <div
-                    ref={vantaRef}
-                    className="absolute top-0 left-0 w-full h-full z-[-1]"
-                ></div>
-            )}
-
             <section
                 id="About"
-                className="relative px-4 sm:px-8 mt-0 min-h-screen flex justify-center items-center bg-primaryColor sm:min-h-[100vh]"
+                className={`relative px-4 sm:px-8 mt-[16vh] lg:mt-0 bg-bgColor ${isMobile ? "h-screen pt-[18vh]" : ""
+                    }`}
             >
                 <div
-                    className={`font-mono h-full w-full flex flex-col items-center justify-center text-center px-14 mb-20
-                    lg:pt-[25vh]
-                    sm:pt-[22vh]
-                    xs:pt-[20vh]
-                    xsm-mx:pt-[16vh]
-                    bs-mx:pt-[14vh]
-                    lg-mx:justify-between
-                    md-mx:px-6
-                    sm-mx:px-4
-                    xs-mx:px-2 xs-mx:py-4
-                    bs-mx:flex-wrap bs-mx:flex-col-reverse
-                    bs-mx:!overflow-visible bs-mx:gap-6
-                    bs-mx:items-center bs-mx:text-center
-                    ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
-                    bs-mx:pb-0`}
+                    className={`
+          font-mono h-fit overflow-hidden flex items-center justify-around
+          px-14 mb-20
+          lg:pt-[25vh]
+          sm:pt-[22vh]
+          xs:pt-[20vh]
+          xsm-mx:pt-[16vh]
+          bs-mx:pt-[14vh]
+          lg-mx:justify-between
+          md-mx:px-6
+          sm-mx:px-4
+          xs-mx:px-2 xs-mx:py-4
+          bs-mx:flex-wrap bs-mx:flex-col-reverse
+          bs-mx:!overflow-visible bs-mx:gap-6
+          bs-mx:items-center bs-mx:text-center
+          ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
+          bs-mx:pb-0
+        `}
                 >
                     {/* Text section */}
-                    <div className="w-full flex flex-col items-center gap-4">
-                        <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg font-semibold">
+                    <div className="ml-20 w-3/5 flex flex-col lg-mx:gap-3 bs-mx:items-center bs-mx:ml-0 bs-mx:w-full">
+                        <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
                             Hi, I am
                         </div>
                         <div className="text-white text-[4.25rem] font-extrabold whitespace-nowrap lg-mx:text-5xl sm-mx:text-4xl xs-mx:text-3xl xsm-mx:text-[27px]">
@@ -106,7 +72,7 @@ const About = ({ showHeader }: HeaderProps) => {
                             {Info.bio}
                         </div>
 
-                        <div className="flex gap-3 justify-center">
+                        <div className="flex gap-3 bs-mx:justify-center bs-mx:flex-nowrap">
                             <Button
                                 onClick={open}
                                 className="!text-bgColor !w-fit px-6 py-3 text-sm sm:text-base bs-mx:text-lg transform transition-all duration-300 hover:scale-105 hover:translate-y-[-5px] hover:shadow-lg"
@@ -130,7 +96,7 @@ const About = ({ showHeader }: HeaderProps) => {
                     </div>
 
                     {/* Profile image - hidden on mobile */}
-                    <div className="mt-10 h-fit flex justify-center items-center bs:mr-12 overflow-hidden rounded-full w-60 shadow-2xl hidden sm:block">
+                    <div className="h-fit flex justify-center items-center bs:mr-12 overflow-hidden rounded-full w-fit -mt-8 ml-8 bs-mx:hidden">
                         <img
                             className="w-[325px] rounded-full shadow-xl lg-mx:w-64 lg-mx:h-64 xsm-mx:w-56 xsm-mx:h-56"
                             src="Photo.jpeg"
