@@ -10,7 +10,7 @@ const Contact = () => {
         name: "",
         email: "",
         phone: "",
-        message: ""
+        message: "",
     };
 
     const [formData, setFormData] = useState<{ [key: string]: string }>(form);
@@ -62,7 +62,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="px-16 my-10 mx-10 font-mono" id="Contact">
+        <div className="font-mono px-6 sm:px-8 xs:px-4 xsm:px-2 my-10" id="Contact">
             <h1 className="text-4xl sm:text-3xl xs:text-2xl text-center mb-10 font-bold text-white">
                 <span className="text-primaryColor">05.&nbsp;</span>Contact
             </h1>
@@ -70,11 +70,12 @@ const Contact = () => {
             <div
                 data-aos="flip-left"
                 data-aos-duration="800"
-                className="w-[70%] md:w-[70%] sm:w-[90%] xs:w-full shadow-[0_0_10px_0_#64FFDA] flex flex-col gap-6 m-auto border border-primaryColor rounded-3xl p-8"
+                className="w-full max-w-3xl sm:max-w-2xl xs:max-w-md xsm:max-w-full mx-auto shadow-[0_0_10px_0_#64FFDA] flex flex-col gap-6 border border-primaryColor rounded-3xl p-8 sm:p-6 xs:p-4 xsm:p-4"
             >
-                <div className="text-3xl text-white font-semibold text-center">
+                <div className="text-3xl sm:text-2xl xs:text-xl text-white font-semibold text-center">
                     Let's Connect
                 </div>
+
                 <FloatingInput
                     id="name"
                     name="Full Name"
@@ -82,7 +83,7 @@ const Contact = () => {
                     handleChange={handleChange}
                     handleBlur={handleBlur}
                     error={formError.name}
-                    disabled={submitState === "sending"} // Disable inputs while sending
+                    disabled={submitState === "sending"}
                 />
                 <FloatingInput
                     id="email"
@@ -114,14 +115,14 @@ const Contact = () => {
 
                 <button
                     className={`
-                        w-full text-xl font-bold px-6 py-3 rounded-lg transition-all duration-300 transform
-                        ${submitState === "sending"
+            w-full text-lg sm:text-base font-bold px-6 py-3 rounded-lg transition-all duration-300 transform
+            ${submitState === "sending"
                             ? "bg-blue-500 text-white scale-95 shadow-inner"
                             : submitState === "sent"
                                 ? "bg-green-500 text-white scale-105 shadow-lg"
                                 : "bg-primaryColor text-bgColor hover:scale-105 hover:shadow-[0_0_10px_#64FFDA]"
                         }
-                    `}
+          `}
                     onClick={handleSubmit}
                     disabled={submitState === "sending"}
                 >

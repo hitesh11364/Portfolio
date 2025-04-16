@@ -20,9 +20,30 @@ const About = ({ showHeader }: HeaderProps) => {
 
     return (
         <>
-            <section id="About" className="pt-[16vh] px-4 sm:px-8">
+            <section id="About" className=" px-4 sm:px-8">
                 <div
-                    className={`lg:pt-[25vh] sm:pt-[24vh] xs:pt-[24vh] flex !mb-20 items-center px-14 overflow-hidden h-fit font-mono sm-mx:px-4 xs-mx:px-2 xs-mx:py-4 justify-around lg-mx:justify-between bs-mx:flex-wrap bs-mx:flex-col-reverse bs-mx:!overflow-visible bs-mx:gap-6 md-mx:px-6 bs-mx:items-center bs-mx:text-center bs-mx:mt-${showHeader ? '[70px]' : '[0px]'} bs-mx:pb-0`}
+                    className={`
+                        font-mono h-fit overflow-hidden flex items-center justify-around
+                        px-14 mb-20
+                      
+                        lg:pt-[25vh]
+                        sm:pt-[22vh]
+                        xs:pt-[20vh]
+                        xsm-mx:pt-[16vh]
+                        bs-mx:pt-[14vh]
+                      
+                        lg-mx:justify-between
+                        md-mx:px-6
+                        sm-mx:px-4
+                        xs-mx:px-2 xs-mx:py-4
+                      
+                        bs-mx:flex-wrap bs-mx:flex-col-reverse
+                        bs-mx:!overflow-visible bs-mx:gap-6
+                        bs-mx:items-center bs-mx:text-center
+                        ${showHeader ? "bs-mx:mt-[70px]" : "bs-mx:mt-0"}
+                        bs-mx:pb-0
+                      `}
+
                 >
                     <div className="ml-20 w-3/5 flex flex-col lg-mx:gap-3 bs-mx:items-center bs-mx:ml-0 bs-mx:w-full">
                         <div className="text-primaryColor text-3xl lg-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
