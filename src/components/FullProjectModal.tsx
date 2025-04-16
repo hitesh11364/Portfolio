@@ -1,23 +1,28 @@
-import { Badge, Group, Indicator, Modal, Text, Button, ScrollArea, Image } from "@mantine/core";
+import { Badge, Group, Indicator, Modal, Text, Button, ScrollArea } from "@mantine/core";
+import { Image } from "@mantine/core";
 
 const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
-            size="auto" // Don't limit width
+            size="auto"
+            classNames={{
+                content:
+                    "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[65%] xl:!w-[60%] 2xl:!w-[55%] !max-h-[95vh]",
+            }}
             className="font-mono"
             opened={props.opened}
             onClose={props.close}
-            classNames={{
-                content: "!w-[95%] sm:!w-[85%] md:!w-[75%] lg:!w-[65%] xl:!w-[55%] 2xl:!w-[45%]",
-            }}
         >
             <Modal.Overlay />
             <Modal.Content className="!rounded-3xl">
                 <Modal.Header className="!bg-bgColor !border-primaryColor border-2 !border-b-0 !rounded-tl-3xl !rounded-tr-3xl">
-                    <Modal.Title data-autofocus className="!text-2xl sm:!text-3xl text-white flex gap-3 items-center font-bold">
+                    <Modal.Title
+                        data-autofocus
+                        className="!text-2xl sm:!text-3xl text-white flex gap-3 items-center font-bold"
+                    >
                         {props.title}
-                        {props.live && (
+                        {props.live === true && (
                             <Badge
                                 className="flex gap-1 items-center"
                                 size="lg"
@@ -31,10 +36,14 @@ const FullProjectModal = (props: any) => {
                             </Badge>
                         )}
                     </Modal.Title>
-                    <Modal.CloseButton size="md" iconSize="30px" className="!bg-bgColor !text-red-500" />
+                    <Modal.CloseButton
+                        size="md"
+                        iconSize="30px"
+                        className="!bg-bgColor !text-red-500"
+                    />
                 </Modal.Header>
 
-                <Modal.Body className="!bg-bgColor !border-primaryColor border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl p-4 sm:p-6 max-h-[85vh] overflow-y-auto">
+                <Modal.Body className="!bg-bgColor !border-primaryColor border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl p-4 sm:p-6 max-h-[85vh] lg:max-h-[90vh] overflow-y-auto">
                     {/* Image */}
                     <Image
                         className="!rounded-xl !pt-2 !shadow-[0_0_5px_0_#64FFDA]"
@@ -51,12 +60,12 @@ const FullProjectModal = (props: any) => {
                         ))}
                     </Group>
 
-                    {/* Description */}
+                    {/* Description Text */}
                     <Text className="!text-justify !sm:text-left !text-textColor" size="md">
                         {props.desc}
                     </Text>
 
-                    {/* Buttons */}
+                    {/* Action Buttons */}
                     <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-4">
                         <a href={props.github} target="_blank" className="w-full">
                             <Button
