@@ -5,7 +5,7 @@ const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
-            size="auto"
+            size="lg"
             classNames={{
                 content:
                     "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[65%] xl:!w-[60%] 2xl:!w-[55%] !max-h-[95vh]",
@@ -29,21 +29,22 @@ const FullProjectModal = (props: any) => {
                                 variant="outline"
                                 color="red"
                                 rightSection={
-                                    <Indicator color="red" position="middle-end" size={10} processing />
+                                    <Indicator
+                                        color="red"
+                                        position="middle-end"
+                                        size={10}
+                                        processing
+                                    />
                                 }
                             >
                                 Live
                             </Badge>
                         )}
                     </Modal.Title>
-                    <Modal.CloseButton
-                        size="md"
-                        iconSize="30px"
-                        className="!bg-bgColor !text-red-500"
-                    />
+                    <Modal.CloseButton size="md" iconSize="30px" className="!bg-bgColor !text-red-500" />
                 </Modal.Header>
 
-                <Modal.Body className="!bg-bgColor !border-primaryColor border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl p-4 sm:p-6 max-h-[85vh] lg:max-h-[90vh] overflow-y-auto">
+                <Modal.Body className="!bg-bgColor !border-primaryColor border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl p-4 sm:p-6 pb-8 lg:pb-12 max-h-[85vh] lg:max-h-[90vh] overflow-y-auto">
                     {/* Image */}
                     <Image
                         className="!rounded-xl !pt-2 !shadow-[0_0_5px_0_#64FFDA]"
@@ -66,7 +67,7 @@ const FullProjectModal = (props: any) => {
                     </Text>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-4">
+                    <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-6 lg:mb-10">
                         <a href={props.github} target="_blank" className="w-full">
                             <Button
                                 variant="outline"
