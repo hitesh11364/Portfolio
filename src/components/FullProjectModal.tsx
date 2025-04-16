@@ -102,4 +102,4 @@ const FullProjectModal = (props: any) => {
     );
 };
 
-export default FullProjectModal;
+export default FullProjectModal; 
