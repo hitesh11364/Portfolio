@@ -42,9 +42,10 @@ const About = ({ showHeader }: HeaderProps) => {
                         <div className="text-white text-[4.25rem] font-extrabold whitespace-nowrap lg-mx:text-5xl sm-mx:text-4xl xs-mx:text-3xl xsm-mx:text-[27px]">
                             {Info.name}
                         </div>
-                        <div className="text-white text-4xl w-[80%] font-semibold whitespace-nowrap justify-center lg-mx:text-[27px] lg-mx:my-0 sm-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg">
-                            <span className="inline">{`I'm a`}&nbsp;</span>
-                            <span className="text-primaryColor inline">
+                        <div className="text-white text-4xl w-[80%] font-semibold whitespace-nowrap justify-center 
+  lg-mx:text-[27px] lg-mx:my-0 sm-mx:text-2xl xs-mx:text-xl xsm-mx:text-lg flex flex-wrap items-center">
+                            <span className="inline-block mr-2">{`I'm a`}</span>
+                            <span className="text-primaryColor inline-block min-w-[150px] text-left">
                                 <Typewriter
                                     words={Info.skills}
                                     loop={true}

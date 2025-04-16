@@ -1,62 +1,94 @@
-import { Badge, Group, Indicator, Modal, Text, Button, ScrollArea } from "@mantine/core";
+import {
+    Badge,
+    Group,
+    Indicator,
+    Modal,
+    Text,
+    Button,
+    ScrollArea,
+} from "@mantine/core";
 import { Image } from "@mantine/core";
 
 const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
-            size="70%"
-            className="font-mono"
+            fullScreen
             opened={props.opened}
             onClose={props.close}
+            className="font-mono"
+            classNames={{
+                content: "max-w-[95%] sm:max-w-[85%] md:max-w-[70%] mx-auto",
+            }}
         >
             <Modal.Overlay />
-            <Modal.Content className="!rounded-3xl">
-                <Modal.Header className="!bg-bgColor !border-primaryColor border-2 !border-b-0 !rounded-tl-3xl !rounded-tr-3xl">
-                    <Modal.Title data-autofocus className="!text-4xl text-white flex gap-3 items-center font-bold">
+            <Modal.Content className="!rounded-2xl !bg-bgColor border-2 border-primaryColor">
+                <Modal.Header className="!bg-bgColor border-b-2 border-primaryColor !rounded-t-2xl">
+                    <Modal.Title className="text-white text-2xl sm:text-3xl font-bold flex gap-3 items-center">
                         {props.title}
-                        {props.live === true && (
-                            <Badge className="flex gap-1 items-center" size="lg" variant="outline" color="red" rightSection={<Indicator color="red" position='middle-end' size={10} processing />}>
+                        {props.live && (
+                            <Badge
+                                className="flex gap-1 items-center"
+                                size="lg"
+                                variant="outline"
+                                color="red"
+                                rightSection={
+                                    <Indicator
+                                        color="red"
+                                        position="middle-end"
+                                        size={10}
+                                        processing
+                                    />
+                                }
+                            >
                                 Live
                             </Badge>
                         )}
                     </Modal.Title>
-                    <Modal.CloseButton size="md" iconSize="30px" className="!bg-bgColor !text-red-500" />
+                    <Modal.CloseButton
+                        size="md"
+                        iconSize="20px"
+                        className="!bg-bgColor !text-red-500"
+                    />
                 </Modal.Header>
 
-                <Modal.Body className="!bg-bgColor !border-primaryColor border-2 !border-t-0 !rounded-bl-3xl !rounded-br-3xl lg:max-h-[80vh] lg:overflow-y-auto">
-
+                <Modal.Body className="p-4 sm:p-6 overflow-y-auto max-h-[85vh]">
                     {/* Image */}
                     <Image
-                        className='!rounded-xl !pt-2 !shadow-[0_0_5px_0_#64FFDA]'
+                        className="!rounded-xl !shadow-[0_0_5px_0_#64FFDA] mb-4"
                         src={props.image}
-                        alt={props.image}
+                        alt={props.title}
                     />
 
-                    {/* Technologies Badge */}
-                    <Group mt="md" mb="md">
+                    {/* Tech stack */}
+                    <Group gap="xs" mt="sm" mb="sm" className="flex flex-wrap">
                         {props.technologies.map((tech: string, index: number) => (
-                            <Badge key={index} size='xl' variant="light" color="#64FFDA">
+                            <Badge
+                                key={index}
+                                size="lg"
+                                variant="light"
+                                color="#64FFDA"
+                                className="mb-1"
+                            >
                                 {tech}
                             </Badge>
                         ))}
                     </Group>
 
-                    {/* Description Text */}
-                    <Text className='!text-justify' size="lg" c="dimmed">
+                    {/* Description */}
+                    <Text size="sm" className="text-justify text-textColor mb-4">
                         {props.desc}
                     </Text>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-4">
+                    <div className="flex flex-col sm:flex-row gap-4 mt-4">
                         <a href={props.github} target="_blank" className="w-full">
                             <Button
                                 variant="outline"
-                                size="lg"
+                                size="md"
                                 color="#64FFDA"
                                 fullWidth
                                 radius="md"
-                                className="!w-full"
                             >
                                 View Code
                             </Button>
@@ -65,11 +97,10 @@ const FullProjectModal = (props: any) => {
                             <a href={props.link} target="_blank" className="w-full">
                                 <Button
                                     variant="outline"
-                                    size="lg"
+                                    size="md"
                                     color="#64FFDA"
                                     fullWidth
                                     radius="md"
-                                    className="!w-full"
                                 >
                                     View Live App
                                 </Button>
@@ -77,20 +108,16 @@ const FullProjectModal = (props: any) => {
                         ) : (
                             <Button
                                 variant="outline"
-                                size="lg"
+                                size="md"
                                 color="gray"
                                 fullWidth
                                 radius="md"
                                 disabled
-                                className="!w-full"
                             >
                                 Live App Unavailable
                             </Button>
                         )}
-
-
                     </div>
-
                 </Modal.Body>
             </Modal.Content>
         </Modal.Root>
