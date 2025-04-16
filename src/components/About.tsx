@@ -33,8 +33,9 @@ const About = ({ showHeader }: HeaderProps) => {
                 minWidth: 200.0,
                 scale: 1.0,
                 scaleMobile: 1.0,
-                color: "#64FFDA", // website primary color
-                backgroundColor: "#000000", // dark bg
+                color: "#8892B0",
+                backgroundColor: "#112240",
+                showLines: false
             });
         }
 
