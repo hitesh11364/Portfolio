@@ -5,9 +5,8 @@ const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
-            size="lg"  // Keeps it large by default
             classNames={{
-                content: "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[60%]", // Adjust the width for large screens, but leave mobile/tablet unchanged
+                content: "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[60%] xl:!w-[50%]", // Adjust width on larger screens
             }}
             className="font-mono"
             opened={props.opened}
