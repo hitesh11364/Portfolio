@@ -1,30 +1,30 @@
-import { Badge, Group, Indicator, Modal, Text, Button, ScrollArea } from "@mantine/core";
-import { Image } from "@mantine/core";
+import { Badge, Group, Indicator, Modal, Text, Button, ScrollArea, Image } from "@mantine/core";
 
 const FullProjectModal = (props: any) => {
     return (
         <Modal.Root
             scrollAreaComponent={ScrollArea.Autosize}
-            size="lg"
-            classNames={{
-                content: "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[50%]",  // Adjust this to 50% on large screens
-            }}
             className="font-mono"
             opened={props.opened}
             onClose={props.close}
+            classNames={{
+                content: "!w-[95%] sm:!w-[80%] md:!w-[70%] lg:!w-[50%] xl:!w-[40%]",
+            }}
         >
             <Modal.Overlay />
             <Modal.Content className="!rounded-3xl">
                 <Modal.Header className="!bg-bgColor !border-primaryColor border-2 !border-b-0 !rounded-tl-3xl !rounded-tr-3xl">
                     <Modal.Title data-autofocus className="!text-2xl sm:!text-3xl text-white flex gap-3 items-center font-bold">
                         {props.title}
-                        {props.live === true && (
+                        {props.live && (
                             <Badge
                                 className="flex gap-1 items-center"
                                 size="lg"
                                 variant="outline"
                                 color="red"
-                                rightSection={<Indicator color="red" position="middle-end" size={10} processing />}
+                                rightSection={
+                                    <Indicator color="red" position="middle-end" size={10} processing />
+                                }
                             >
                                 Live
                             </Badge>
@@ -50,12 +50,12 @@ const FullProjectModal = (props: any) => {
                         ))}
                     </Group>
 
-                    {/* Description Text */}
-                    <Text className="!text-justify !sm:text-left  !text-textColor" size="md">
+                    {/* Description */}
+                    <Text className="!text-justify !sm:text-left !text-textColor" size="md">
                         {props.desc}
                     </Text>
 
-                    {/* Action Buttons */}
+                    {/* Buttons */}
                     <div className="flex flex-col lg:flex-row gap-4 mt-6 mb-4">
                         <a href={props.github} target="_blank" className="w-full">
                             <Button
